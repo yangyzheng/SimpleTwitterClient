@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:windowActionBar="false"
+    tools:context="com.AndroidBootCamp.BasicTwitter.NewTweetActivity" >
+
+    <ImageView
+        android:id="@+id/ivBackHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_tweet_backbtn"
+        android:paddingTop="10dp"
+        android:contentDescription="@string/back_home_label"/>
+
+    <TextView
+        android:id="@+id/tvTweetUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvTweetHandle"
+        android:layout_alignLeft="@+id/tvTweetHandle"
+        android:text="@string/user_name_label" 
+        android:textColor="@color/userName"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/tvTweetHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivBackHome"
+        android:layout_toRightOf="@+id/ivUserProfile"
+        android:text="@string/user_handle_label" 
+        android:textColor="@color/userHandle"/>
+
+    <ImageView
+        android:id="@+id/ivTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_tweet_disabled2"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/new_tweet_label"/>
+
+    <TextView
+        android:id="@+id/tvCharsLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/ivTweet"
+        android:text="@string/tweet_total_chars" 
+        android:textColor="@color/iconText"
+        android:paddingTop="20dp"/>
+
+    <EditText
+        android:id="@+id/etTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ivBackHome"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="@string/tweet_hint_label"
+        android:textSize="14sp"
+        android:inputType="textMultiLine" />
+
+    <ImageView
+        android:id="@+id/ivUserProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etTweet"
+        android:layout_toRightOf="@+id/ivBackHome"
+        android:contentDescription="@string/back_home_label"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_default_profile" />
+
+</RelativeLayout>
