@@ -5,7 +5,7 @@
     android:label="@string/home_label" 
     tools:context="${relativePackage}.${activityClass}" >
 
-    <ListView
+    <eu.erikw.PullToRefreshListView
         android:id="@+id/lvTweets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,6 +14,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" >
 
-    </ListView>
+    </eu.erikw.PullToRefreshListView>
 
 </RelativeLayout>

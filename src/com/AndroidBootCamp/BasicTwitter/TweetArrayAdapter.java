@@ -3,7 +3,7 @@ package com.AndroidBootCamp.BasicTwitter;
 import java.util.List;
 
 import android.app.Activity;
-import android.text.format.DateUtils;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,15 +56,13 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 			viewHolder.tvReply = (TextView) view.findViewById(R.id.tvReply);
 			viewHolder.tvReTweet = (TextView) view.findViewById(R.id.tvReTweet);
 			viewHolder.tvFavorite = (TextView) view.findViewById(R.id.tvFavorite);
-
-			// TODO
-			viewHolder.tvReply.setOnClickListener(new View.OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					Log.d("DEBUG", "Reply clicked.");
-				}
-			});
+			
+//			viewHolder.tvReply.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					//Log.d("DEBUG", "Reply clicked.");	
+//				}
+//			});
 
 			viewHolder.tvReTweet.setOnClickListener(new View.OnClickListener() {
 
@@ -98,6 +96,12 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		viewHolder.tvUserHandle.setText("@"+ tweet.getUser().getScreenName());
 		String relativeTime = Tweet.getRelativeTimeAgo(tweet.getCreatedAt());
 		viewHolder.tvTime.setText(relativeTime);
+		//viewHolder.tvReTweet.setText(tweet.getRetweetCount());
+		//viewHolder.tvFavorite.setText(tweet.getFavoriteCount());
+		MyOnClickListener replyOnClickListener = 
+				new MyOnClickListener(this._context, viewHolder.tvUserHandle.getText().toString());
+		
+        viewHolder.tvReply.setOnClickListener(replyOnClickListener);
 		return view;
 	}
 

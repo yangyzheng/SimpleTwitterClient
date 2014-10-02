@@ -23,11 +23,13 @@ import com.AndroidBootCamp.BasicTwitter.models.User;
 import com.codepath.apps.restclienttemplate.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import eu.erikw.PullToRefreshListView;
+
 public class TimelineActivity extends Activity {
 	private TwitterClient client;
 	private ArrayList<Tweet> tweets;
 	private ArrayAdapter<Tweet> aTweets;
-	private ListView lvTweets;
+	private PullToRefreshListView  lvTweets;
 	private final int TWEET_REQUEST = 100;
 	private User myAccount;
 	private SharedPreferences sharedPref; 
@@ -41,7 +43,7 @@ public class TimelineActivity extends Activity {
 		myAccount= new User();
 		verifyMyAccount();
 		populateTimeline();
-		lvTweets = (ListView)findViewById(R.id.lvTweets);
+		lvTweets = (PullToRefreshListView )findViewById(R.id.lvTweets);
 		tweets = new ArrayList<Tweet>();
 		aTweets = new TweetArrayAdapter(this, tweets);
 		lvTweets.setAdapter(aTweets);
@@ -57,9 +59,46 @@ public class TimelineActivity extends Activity {
 			}
 
 		});
+		
+		lvTweets.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+			
+			@Override
+			public void onRefresh() {
+				//code to refresh the list, call listView.onRefreshComplete()
+                // once the network request has completed successfully.
+				fetchTimelineAsyn(0);
+			}
+		});
 	}
 
-	// Append more data into the adapter
+	public void fetchTimelineAsyn(int i) {
+		long sinceId = 0;
+		int count = tweets.size();
+    	if (count > 0){
+    		sinceId = Long.parseLong(tweets.get(0).getId());
+    	}
+		
+		client.getHomeTimeline(sinceId, new JsonHttpResponseHandler() {
+            public void onSuccess(JSONArray jsonArray) {
+                // after the data comes back, populating the list view
+            	
+            	ArrayList<Tweet> newTweets = Tweet.fromJsonArray(jsonArray); 
+            	aTweets.addAll(newTweets );     //at the bottom
+            	
+            	//or use a loop to insert them at the front?
+                // Now we call setRefreshing(false) to signal refresh has finished
+            	
+            	lvTweets.onRefreshComplete();
+            }
+
+            public void onFailure(Throwable e) {
+                Log.d("DEBUG", "Fetch timeline error: " + e.toString());
+            }
+        });
+		
+	}
+
+	// Append more data into the adapter, get older tweets
     public void customLoadMoreDataFromApi(int offset) {
       // sends out a network request to retrieve more data and appends new data items to the adapter. 
       // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
@@ -110,8 +149,9 @@ public class TimelineActivity extends Activity {
 		});
 	}
 
+	//populate the timeline the first time
 	public void populateTimeline() {
-		client.getHomeTimeline(new JsonHttpResponseHandler() {
+		client.getHomeTimelineFirstTime(new JsonHttpResponseHandler() {	
 
 			@Override
 			public void onSuccess(JSONArray jsonArray) {
@@ -145,6 +185,7 @@ public class TimelineActivity extends Activity {
 		if (id == R.id.action_new_tweet) {
 			// first parameter is the context, second is the class of the activity to launch
 			  Intent it = new Intent(this, NewTweetActivity.class);
+			  it.putExtra("ReplyTo", " ");
 			  //Data is in preferences, no need to use intent
 			  startActivityForResult(it, TWEET_REQUEST);
 			  

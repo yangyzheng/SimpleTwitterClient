@@ -27,12 +27,14 @@ public class NewTweetActivity extends Activity {
 	private static final int MAX_TWEET = 140;
 	private boolean tweetBtnEnabled = false;
 	private SharedPreferences sharedPref; 	
+	private String replyTo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_tweet);
 		this.getActionBar().hide();
+		replyTo = getIntent().getStringExtra("ReplyTo");
 		sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 		tvTweetUser = (TextView) findViewById(R.id.tvTweetUser);
 		tvTweetHandle = (TextView) findViewById(R.id.tvTweetHandle);
@@ -87,6 +89,13 @@ public class NewTweetActivity extends Activity {
 		};
 
 		etTweet.addTextChangedListener(etTextWatcher);
+		
+		if (replyTo != null && replyTo.trim().length()> 0){
+			
+			etTweet.setText(replyTo + " ");
+			//set cursor after the space to the replyTo name
+			etTweet.setSelection(replyTo.length() + 1);
+		}
 		
 		ivBackHome.setOnClickListener(new View.OnClickListener() {
 			@Override
