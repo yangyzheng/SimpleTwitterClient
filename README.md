@@ -37,6 +37,10 @@ Work-in-progresse features are in a separate local workspace, will merge to main
 Right now trying cache images on disk mentioned below and not sure how to use ContentProvider to do that (mentioned in the same post. Still exploring... :sweat: 
 (http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html#disk-cache)
 
+**_Questions:_**
+- About the favorite_count, I couldn't find a working API from twitter, any suggestion?
+- I'm using a separate Activity (actionbar hidden) for composing new tweet, and reuse it for reply, if I would change it to use fragment, it should be the same (resusable), right?
+
 **_Walkthrough of all user stories:_**
 
 ![screenshot](https://raw.githubusercontent.com/yangyzheng/SimpleTwitterClient/master/Readme/SimpleTwitterClient3.gif)
