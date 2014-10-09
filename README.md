@@ -33,7 +33,7 @@ Have a bug in reply, working on it, it used to work.
 
 **_Walkthrough of all user stories:_**
 
-![screenshot](https://raw.githubusercontent.com/yangyzheng/SimpleTwitterClient/master/Readme/SimpleTwitterClient10.gif)
+![screenshot](https://raw.githubusercontent.com/yangyzheng/SimpleTwitterClient/master/Readme/SimpleTwitterClient4.gif)
 
 
 
