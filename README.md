@@ -29,7 +29,8 @@ A simple Twitter client that supports viewing a Twitter timeline and composing a
 
 
 **_Note_**
-Have a bug in reply, working on it, it used to work.
+- Have a bug in reply, working on it, it used to work.
+- Have a bug in format # of tweets, working on it.
 
 **_Walkthrough of all user stories:_**
 
