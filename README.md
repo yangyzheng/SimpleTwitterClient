@@ -3,6 +3,45 @@ SimpleTwitterClient
 
 A simple Twitter client that supports viewing a Twitter timeline and composing a new tweet.
 
+**Week 4** 
+
+- [x] User can switch between Timeline and Mention views using tabs.
+- [x] User can view their home timeline tweets.
+- [x] User can view the recent mentions of their username.
+- [x] User can scroll to bottom of either of these lists and new tweets will load ("infinite scroll")
+- [x] Optional: Implement tabs in a gingerbread-compatible approach
+- [x] User can navigate to view their own profile
+- [x] User can see picture, tagline, # of followers, # of following, and tweets on their profile.
+- [x] User can click on the profile image in any tweet to see another user's profile.
+- [x] User can see picture, tagline, # of followers, # of following, and tweets of clicked user.
+- [x] Profile view should include that user's timeline
+- [ ] Optional: User can view following / followers list through the profile
+
+- [x] Advanced: Robust error handling, check if internet is available, handle error cases, network failures
+- [x] Advanced: When a network request is sent, user sees an indeterminate progress indicator
+- [x] Advanced: Improve the user interface and theme the app to feel twitter branded
+- [ ] Advanced: User can "reply" to any tweet on their home timeline
+- [ ] The user that wrote the original tweet is automatically "@" replied in compose
+- [ ] Advanced: User can click on a tweet to be taken to a "detail view" of that tweet
+- [ ] Advanced: User can take favorite (and unfavorite) or reweet actions on a tweet
+- [ ] Advanced: User can search for tweets matching a particular query and see results
+- [ ] Bonus: User can view their direct messages (or send new ones)
+
+
+**_Note_**
+Have a bug in reply, working on it, it used to work.
+
+**_Walkthrough of all user stories:_**
+
+![screenshot](https://raw.githubusercontent.com/yangyzheng/SimpleTwitterClient/master/Readme/SimpleTwitterClient10.gif)
+
+
+
+
+=====================
+
+**Week 3**
+
 **_Time spent:_** About 3 hours everyday since last Friday, ~20 hours spent in total.
 
 **_Completed user stories:_**
@@ -32,14 +71,6 @@ A simple Twitter client that supports viewing a Twitter timeline and composing a
 **_Not started:_**
 - [ ] Bonus: Compose activity is replaced with a modal overlay
 
-**_Notes:_**
-Work-in-progresse features are in a separate local workspace, will merge to main branch once they are working properly.
-Right now trying cache images on disk mentioned below and not sure how to use ContentProvider to do that (mentioned in the same post. Still exploring... :sweat: 
-(http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html#disk-cache)
-
-**_Questions:_**
-- About the favorite_count, I couldn't find a working API from twitter, any suggestion?
-- I'm using a separate Activity (actionbar hidden) for composing new tweet, and reuse it for reply, if I would change it to use fragment, it should be the same (resusable), right?
 
 **_Walkthrough of all user stories:_**
 
