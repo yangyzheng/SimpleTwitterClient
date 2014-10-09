@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp"
@@ -25,7 +25,7 @@
         android:layout_toRightOf="@+id/ivProfileImage"
         android:text="@string/user_name_label" 
         android:textStyle="bold"
-        android:textColor="#292F33"/>
+        android:textColor="@color/userName"/>
 
     <TextView
         android:id="@+id/tvBody"
@@ -35,9 +35,10 @@
         android:layout_below="@+id/tvUserName"
         android:layout_toLeftOf="@+id/tvTime"
         android:text="@string/tweet_body_label" 
-        android:textColor="#292F33"
+        android:textColor="@color/tweetBody"
         android:autoLink="all"
-     	android:linksClickable="true"/>
+     	android:linksClickable="true"
+     	android:textColorLink="@color/tweetUrl"/>
 
     <TextView
         android:id="@+id/tvUserHandle"
@@ -49,7 +50,8 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/tvUserName"
         android:text="@string/user_handle_label"
-        android:textColor="#8899A6" />
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -60,41 +62,66 @@
         android:paddingTop="10dp"
         android:paddingRight="6dp"
         android:text="@string/time_label" 
-        android:textColor="#8899A6"/>
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBody"
+        android:layout_toRightOf="@+id/ivProfileImage" 
+        android:paddingTop="15dp"
+        android:paddingRight="15dp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/ivTweetImage"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_launcher" 
+        android:contentDescription="@string/tweet_image_label"/>
+
+     <TextView
         android:id="@+id/tvReply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvBody"
-        android:layout_below="@+id/tvBody"
-        android:textSize="12sp"
         android:drawableLeft="@drawable/ic_reply"
-    	android:drawablePadding="8dp"
-    	android:paddingTop="10dp"
-    	android:paddingBottom="10dp"/>
-
+        android:drawablePadding="8dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="60dp"
+        android:textSize="12sp" 
+        android:layout_below="@+id/ivTweetImage"/>
+     
     <TextView
         android:id="@+id/tvReTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvReply"
-        android:layout_alignBottom="@+id/tvReply"
-        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/tvReply"
         android:drawableLeft="@drawable/ic_retweet"
-    	android:drawablePadding="8dp"
-    	android:paddingTop="10dp"
-    	android:paddingBottom="10dp"/>
+        android:drawablePadding="8dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="60dp"
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tvFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvReply"
-        android:layout_toLeftOf="@+id/tvTime"
+        android:layout_alignBaseline="@+id/tvReply"
+        android:layout_toRightOf="@+id/tvReTweet"
         android:drawableLeft="@drawable/ic_favorite"
         android:drawablePadding="8dp"
-        android:paddingTop="10dp" 
-        android:paddingBottom="10dp"/>
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:textColor="@color/userHandle"
+        android:textSize="12sp"/>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -8,5 +8,8 @@
     <color name="menuBackground">#FFFFFF</color>
     <color name="menuText">#000000</color>
     <color name="iconText">#CCD6DD</color>
+    <color name="tabindicator">#BBDDF5</color>
+    <color name="border">#E1E8ED</color>
+    <color name="separater">#F5F8FA</color>
 </resources>
 

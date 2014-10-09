@@ -14,14 +14,22 @@ import android.util.Log;
 
 public class Tweet {
 	private String _body;
-	private String _id;
+	private long _id;
 	private String _createdAt;
 	private User _user;
 	private int _retweetCount;
 	private int _favoriteCount;
-	
-	//# of favorite
-	//# of retweets
+	private String _mediaUrl;
+	private boolean _favorited;
+	private boolean _retweeted;
+
+	public boolean isFavorted() {
+		return _favorited;
+	}
+
+	public boolean isRetweeted() {
+		return _retweeted;
+	}
 
 	public String getBody() {
 		return _body;
@@ -35,7 +43,7 @@ public class Tweet {
 		return _favoriteCount;
 	}
 
-	public String getId() {
+	public long getId() {
 		return _id;
 	}
 
@@ -46,25 +54,50 @@ public class Tweet {
 	public User getUser() {
 		return _user;
 	}
+	
+	public String getMediaUrl() {
+		return _mediaUrl;
+	}
 
 	public static Tweet fromJson(JSONObject jsonObject) {
 		Tweet tweet = new Tweet();
-		// Deserialize json into object fields
+		tweet._mediaUrl = null;
+		JSONObject entities = null;
+		JSONArray media = null;
+		
 		try {
 			tweet._body = jsonObject.getString("text");
-			tweet._id = jsonObject.getString("id");
+			tweet._id = Long.parseLong(jsonObject.getString("id"));
 			tweet._createdAt = jsonObject.getString("created_at");
 			tweet._user = User.fromJson(jsonObject.getJSONObject("user"));
-			tweet._retweetCount = 0;//jsonObject.getInt("retweet_count");
-			tweet._favoriteCount = 0;//jsonObject.getInt("favorite_count");
+			tweet._retweetCount = jsonObject.getInt("retweet_count");
+			tweet._favoriteCount = jsonObject.getInt("favorite_count");
+			tweet._favorited = jsonObject.getBoolean("favorited");
+			tweet._retweeted = jsonObject.getBoolean("retweeted");
 			
+			entities = jsonObject.getJSONObject("entities");
+			//Log.d("DEBUg", entities.toString());
+			
+	
+			if (entities != null){
+				try{
+			     media = entities.getJSONArray("media");
+				}
+			    catch(JSONException ex){
+			    	//doesn't exist
+			    }	
+				if (media != null && media.length() > 0) {
+					// get the first media image
+					tweet._mediaUrl = media.getJSONObject(0).getString("media_url");
+				}
+			}
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;
 		}
 		// Return new object
 		return tweet;
-
 	}
 
 	public static ArrayList<Tweet> fromJsonArray(JSONArray jsonArray) {
@@ -133,8 +166,10 @@ public class Tweet {
 							}
 							else{
 								stIdx = relativeDate.indexOf("second");
-								toTrim = relativeDate.substring(stIdx);
-								relativeDate = relativeDate.replace(toTrim, "s");
+								if (stIdx > 0) {
+									toTrim = relativeDate.substring(stIdx);
+									relativeDate = relativeDate.replace(toTrim, "s");
+								}
 							}
 						} 
 					}

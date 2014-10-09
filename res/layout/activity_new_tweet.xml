@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowActionBar="false"
-    tools:context="com.AndroidBootCamp.BasicTwitter.NewTweetActivity" >
+    tools:context="com.AndroidBootCamp.BasicTwitter.activities.NewTweetActivity" >
 
     <ImageView
         android:id="@+id/ivBackHome"
@@ -64,10 +64,13 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/ivBackHome"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="@string/tweet_hint_label"
         android:textSize="14sp"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine" 
+        android:background="@null" />
 
     <ImageView
         android:id="@+id/ivUserProfile"

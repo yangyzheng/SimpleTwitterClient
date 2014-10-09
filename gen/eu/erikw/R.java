@@ -8,32 +8,32 @@ package eu.erikw;
 
 public final class R {
 	public static final class drawable {
-		public static final int ptr_pulltorefresh_arrow = 0x7f020010;
+		public static final int ptr_pulltorefresh_arrow = 0x7f020071;
 	}
 	public static final class id {
-		public static final int ptr_id_header = 0x7f090008;
-		public static final int ptr_id_image = 0x7f090009;
-		public static final int ptr_id_last_updated = 0x7f09000d;
-		public static final int ptr_id_spinner = 0x7f09000a;
-		public static final int ptr_id_text = 0x7f09000c;
-		public static final int ptr_id_textwrapper = 0x7f09000b;
+		public static final int ptr_id_header = 0x7f050056;
+		public static final int ptr_id_image = 0x7f050057;
+		public static final int ptr_id_last_updated = 0x7f05005b;
+		public static final int ptr_id_spinner = 0x7f050058;
+		public static final int ptr_id_text = 0x7f05005a;
+		public static final int ptr_id_textwrapper = 0x7f050059;
 	}
 	public static final class layout {
-		public static final int ptr_header = 0x7f030004;
+		public static final int ptr_header = 0x7f03001f;
 	}
 	public static final class string {
-		public static final int ptr_last_updated = 0x7f050003;
-		public static final int ptr_pull_to_refresh = 0x7f050000;
-		public static final int ptr_refreshing = 0x7f050002;
-		public static final int ptr_release_to_refresh = 0x7f050001;
+		public static final int ptr_last_updated = 0x7f0a0010;
+		public static final int ptr_pull_to_refresh = 0x7f0a000d;
+		public static final int ptr_refreshing = 0x7f0a000f;
+		public static final int ptr_release_to_refresh = 0x7f0a000e;
 	}
 	public static final class style {
-		public static final int ptr_arrow = 0x7f040002;
-		public static final int ptr_header = 0x7f040001;
-		public static final int ptr_headerContainer = 0x7f040000;
-		public static final int ptr_last_updated = 0x7f040006;
-		public static final int ptr_spinner = 0x7f040003;
-		public static final int ptr_text = 0x7f040005;
-		public static final int ptr_textwrapper = 0x7f040004;
+		public static final int ptr_arrow = 0x7f0b008d;
+		public static final int ptr_header = 0x7f0b008c;
+		public static final int ptr_headerContainer = 0x7f0b008b;
+		public static final int ptr_last_updated = 0x7f0b0091;
+		public static final int ptr_spinner = 0x7f0b008e;
+		public static final int ptr_text = 0x7f0b0090;
+		public static final int ptr_textwrapper = 0x7f0b008f;
 	}
 }

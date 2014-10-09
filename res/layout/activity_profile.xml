@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.AndroidBootCamp.BasicTwitter.activities.ProfileActivity" >
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#efefef" >
+
+        <ImageView
+            android:id="@+id/ivHeaderBackground"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/user_image_label"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/ivHeaderImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/profile_image_frame"
+            android:contentDescription="@string/user_image_label"/>
+
+        <TextView
+            android:id="@+id/tvHeaderUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivHeaderImage"
+            android:layout_centerHorizontal="true"
+            android:text="@string/user_name_label"
+            android:textColor="@color/menuBackground"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvHeaderUserHandle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHeaderUserName"
+            android:layout_centerHorizontal="true"
+            android:text="@string/user_handle_label"
+            android:textColor="@color/menuBackground"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvTweets"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rlHeader"
+        android:background="@drawable/profile_tweet_layer"
+        android:paddingLeft="15dp"
+        android:paddingRight="55dp"
+        android:text="@string/tweets_label"
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignBaseline="@+id/tvTweets"
+        android:layout_toRightOf="@+id/tvTweets"
+        android:background="@drawable/profile_tweet_layer"
+        android:paddingLeft="15dp"
+        android:paddingRight="35dp"
+        android:text="@string/following_label"
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignBaseline="@+id/tvTweets"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/tvFollowing"
+        android:background="@drawable/profile_tweet_layer"
+        android:paddingLeft="10dp"
+        android:text="@string/followers_label"
+        android:textColor="@color/userHandle"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/rlOptions"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/tvTweets"
+        android:background="@drawable/profile_option_layer" >
+
+        <TextView
+            android:id="@+id/tvEditProfile"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/textview_background"
+            android:gravity="center_horizontal"
+            android:paddingTop="6dp"
+            android:text="@string/edit_profile_label"
+            android:textColor="@color/userHandle"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/favorited_label"
+            android:src="@drawable/ic_favorite_not" />
+
+        <ImageView
+            android:id="@+id/ivFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/following_label"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_following_btn" />
+
+        <ImageView
+            android:id="@+id/ivSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvEditProfile"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/usersetting_label"
+            android:src="@drawable/ic_user_settings" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/rlOptions"
+        android:background="@color/separater" />
+
+    <FrameLayout
+        android:id="@+id/flUserTweetsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvSeparator"
+        android:background="#efefef" >
+    </FrameLayout>
+
+</RelativeLayout>
